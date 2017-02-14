@@ -52,6 +52,9 @@ if valid_login? github_token
   ##
   # Print out user information
   puts user_block(github_token)
+  
+  system('git config --global url."https://".insteadOf git://')
+  system('git config --global url.https://github.com/.insteadOf git://github.com/')
 else
   puts "       !!!! No valid Github user found with GITHUB_AUTH_TOKEN: '#{github_token}'"
   exit 1
